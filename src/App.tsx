@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect } from "react";
+import { Header } from "./components/Header/Header";
+import "./styles/global.css";
+import { StatsCards } from "./components/StatsCard/StatsCards";
+import { Tasks } from "./components/Tasks/Tasks";
+import { Memoization } from "./components/Conceps/Memoization";
+import { TasksProvider } from "./context/TasksContext";
 function App() {
+  //useEffect(() => {}, []);
+  //O useEffect sera disparado sempre que alguma variavel do array de
+  //dependencias for alterado
+  //Porem por padrao, sempre o useEffect sera disparado apos a montagem do componente    (componenteDidMount)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TasksProvider>
+      <Header></Header>
+      <Tasks></Tasks>
+    </TasksProvider>
   );
 }
 
